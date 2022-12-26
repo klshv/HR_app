@@ -6,6 +6,8 @@ namespace HR_app.Data
     public class HRAppDbContext : DbContext
     {
         public DbSet<PersonEntity> Persons { get; set; }
+        public DbSet<ApplicantEntity> Applicants { get; set; }
+        public DbSet<EmployeeEntity> Employees { get; set; }
 
         public string DbPath { get; }
 

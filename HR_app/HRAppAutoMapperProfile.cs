@@ -15,11 +15,22 @@ namespace HR_app
 
             CreateMap<Person, PersonShortDto>()
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.GetFullName()));
-            CreateMap<Person, PersonDto>();
-            CreateMap<ContactData, ContactDataDto>();
-            CreateMap<Address, AddressDto>();
+            CreateMap<Person, PersonDto>().ReverseMap();
+            CreateMap<ContactData, ContactDataDto>().ReverseMap();
+            CreateMap<Address, AddressDto>().ReverseMap();
 
             CreateMap<PersonCreateDto, Person>();
+
+            CreateMap<Applicant, ApplicantDto>().ReverseMap();
+            CreateMap<ApplicantCreateDto, Applicant>();
+            CreateMap<ApplicantEntity, Applicant>().ReverseMap();
+            CreateMap<Applicant, ApplicantShortDto>();
+
+            CreateMap<Employee, EmployeeDto>();
+            CreateMap<EmployeeCreateDto, Employee>();
+            CreateMap<EmployeeEntity, Employee>().ReverseMap();
+            CreateMap<Employee, EmployeeShortDto>();
+
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace HR_app.App.Interfaces.DataServices
 {
-    public interface IPersonDataService
+    public interface IPersonDataService 
     {
         IEnumerable<Person> GetAll(int pageIndex, int pageSize);
         int GetCount();

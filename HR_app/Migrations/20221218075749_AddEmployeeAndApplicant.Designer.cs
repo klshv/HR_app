@@ -3,6 +3,7 @@ using System;
 using HR_app.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HRapp.Migrations
 {
     [DbContext(typeof(HRAppDbContext))]
-    partial class HRAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221218075749_AddEmployeeAndApplicant")]
+    partial class AddEmployeeAndApplicant
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
@@ -131,7 +134,7 @@ namespace HRapp.Migrations
 
             modelBuilder.Entity("HR_app.Data.Entities.PersonEntity", b =>
                 {
-                    b.Property<int>("PersonId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -153,7 +156,7 @@ namespace HRapp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("PersonId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ContactDataId");
 

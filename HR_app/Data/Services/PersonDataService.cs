@@ -29,7 +29,7 @@ namespace HR_app.Data.Services
         public Person Get(int id)
         {
             return _dbContext.Persons
-                .Where(x => x.Id == id)
+                .Where(x => x.PersonId == id)
                 .Select(x => _mapper.Map<Person>(x))
                 .First();
         }
@@ -50,7 +50,7 @@ namespace HR_app.Data.Services
 
         public async Task DeleteAsync(int personId)
         {
-            var personEntityBeingDeleted = _dbContext.Persons.First(x => x.Id == personId);
+            var personEntityBeingDeleted = _dbContext.Persons.First(x => x.PersonId == personId);
             _dbContext.Persons.Remove(personEntityBeingDeleted);
             await _dbContext.SaveChangesAsync();
         }

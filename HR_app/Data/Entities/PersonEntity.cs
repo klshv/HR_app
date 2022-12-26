@@ -1,8 +1,11 @@
-﻿namespace HR_app.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HR_app.Data.Entities
 {
     public class PersonEntity
     {
-        public int Id { get; set; }
+        [Key]
+        public int PersonId { get; set; }
 
         /// <summary>
         /// Имя
@@ -24,5 +27,14 @@
         /// Контактные данные
         /// </summary>
         public ContactDataEntity ContactData { get; set; } = new();
+
+        public void Overwrite(PersonEntity updatedPerson)
+        {
+            FirstName = updatedPerson.FirstName;
+            LastName = updatedPerson.LastName;
+            Patronymic = updatedPerson.Patronymic;
+            Birthday = updatedPerson.Birthday;
+            ContactData.Overwrite(updatedPerson.ContactData);
+        }
     }
 }
